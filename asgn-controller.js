@@ -1,4 +1,4 @@
-const Asgn = require("./model.js");
+const Asgn = require("./asgn-model.js");
 
 exports.index = function (req, res) {
     Asgn.get (function (err, assignments) {
@@ -18,7 +18,7 @@ exports.index = function (req, res) {
 
 exports.new = function(req, res) {
     var assignment = new Asgn();
-    assignment.name = req.body.courseName ? req.body.name : assignment.courseName;
+    assignment.courseName = req.body.courseName ? req.body.courseName : assignment.courseName;
     assignment.assignmentName = req.body.assignmentName;
     assignment.dueDate = req.body.dueDate;
 
@@ -39,7 +39,7 @@ exports.view = function (req, res) {
             res.send(err);
         }
         res.json({
-            message: "Contact details loading..",
+            message: "Assignment details loading..",
             data: assignment
         });
     });
@@ -50,7 +50,7 @@ exports.update = function (req, res) {
         if (err) {
             res.send(err);
         }
-        assignment.name = req.body.courseName ? req.body.name : assignment.courseName;
+        assignment.courseName = req.body.courseName ? req.body.courseName : assignment.courseName;
         assignment.assignmentName = req.body.assignmentName;
         assignment.dueDate = req.body.dueDate;
 

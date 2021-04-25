@@ -1,6 +1,6 @@
 let express = require('express')
 let app = express();
-const apiRouter = require('./api-router.js')
+const apiRouter = require('./asgn-router.js')
 let mongoose = require('mongoose');
 let bodyParser = require('body-parser');
 
@@ -26,5 +26,5 @@ app.use("/api", apiRouter);
 app.get('/', (req, res) => res.send('Hello World with Express'));
 
 app.listen(port, function () {
-    console.log("Running contacts-api on port " + port);
+    console.log("Running assignments-api on port " + port);
 });
